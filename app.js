@@ -78,18 +78,19 @@ if(isDayTime){
   } 
 }
 if(!isDayTime){
+  console.log("Entered second if")
  if (num == 33 || num ==34 || num==35) {
-  image = "background-image:url('night.jpg')";
+  image = "background-image:url('../assets/night.jpg')";
   imageSource = "../assets/clearnight.png"
 } else if (num == 36 || num == 37 || num == 38 ) {
-image = "background-image:url('cloudyNight.jpg')";
+image = "background-image:url('../assets/cloudyNight.jpg')";
 imageSource = "../assets/cloudynight.png"
 } else if(num == 39 ||num == 40 ||num == 41 ||num == 42 ) {
-image = "background-image:url('rain.jpg')";
+image = "background-image:url('../assets/rain.jpg')";
 imageSource = "../assets/thunderstorm.png"
 }
 else{
-image = "background-image:url('snowNight.jpg')";
+image = "background-image:url('../assets/snowNight.jpg')";
 imageSource = "../assets/snow.png"
 }
 }
