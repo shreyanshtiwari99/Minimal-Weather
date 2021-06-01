@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({
     let value, desc, icon, isDayTime,iconpack;
     console.log(req.body.location);
     const location = req.body.location
-    fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=6SqOA8mHYb8i7SyZ5pMtRHLyxvjUo8nw%20&q=${location}`)
+    fetch( `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=Ffx7XA6Jw14Zr7ykqaMGZznpAmhGo8pW%20&q=${location}`)
     .then(resp => {
     
         return resp.json();
@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({
       
         const city = dataset[0].LocalizedName;
        
-          fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=6SqOA8mHYb8i7SyZ5pMtRHLyxvjUo8nw`)
+          fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=%20%09Ffx7XA6Jw14Zr7ykqaMGZznpAmhGo8pW%20`)
             .then(data => {
               return data.json();
             })

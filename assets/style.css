@@ -12,7 +12,17 @@ body {
   flex-direction: column;
   align-items: center;
   background-image: url("./clear.jpg");
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -o-transition: background 1s;
+  transition: background 1s;
   color: white;
+}
+img{
+  -webkit-transition: background 1s;
+  -moz-transition: background 1s;
+  -o-transition: background 1s;
+  transition: background 1s;
 }
 .container {
   background: rgba(255, 255, 255, 0.25);
