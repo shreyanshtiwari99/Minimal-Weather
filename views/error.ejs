@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    
     <link rel="stylesheet" href="../assets/style.css" />
-    <title><%= pageTitle%></title>
+    <title>Minimal Weather</title>
 
   </head>
-  <body style=<%=image%>>
+  <body>
     
       <div>
         <form action="/" method="POST">
-          <input type="text" class="search" name="location" placeholder="Enter a city name" value=<%=cityName%>>
+          <input type="text" class="search" name="location" placeholder="Enter a city name" >
           <button type="submit" class="submission">Search</button>
         </form>
       </div> 
@@ -20,22 +20,22 @@
 
     <div class="container">
       <div class="temperature">
-         <h2 class="temperature-degree"><%= degree%></h2><h2 class="degree-logo"><%=unit%></h2>
+         <h2 class="temperature-degree"></h2><span class="degree-logo"></span>
         
       </div>
 
-      <div class="temperature-description">
+      <div class="temperature-description" style="color:red">
           <%=description%>
       </div>
       <span id="in"></span>
-      <h2 class="city-name"><%=cityName%></h2>
+      <h2 class="city-name"></h2>
       <!-- <div class="location">
       <h1 class="location-timezone"></h1>
       </div> -->
-      <div class="refreshed" style=<%=refreshed%>>
-        Last refreshed: <%=time%>
+      <div class="refreshed" >
+       
       </div>
-     <img class="icon" width="100"  name="icon" src=<%=imageSource%>>
+     <img class="icon" width="100"  name="icon" >
       <!-- <img src="" alt="icon"> -->
     </div>
     

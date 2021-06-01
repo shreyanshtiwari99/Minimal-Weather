@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const  bodyParser = require('body-parser');
 const fetch = require('node-fetch');
+
 let d = new Date();
 app.use(express.json());
 app.use(bodyParser.urlencoded({
@@ -17,7 +18,7 @@ app.use(bodyParser.urlencoded({
   });
 
  app.get('/',(req,res) => {
-     res.render('index',{pageTitle:'Minimal Weather', degree:'',cityName:req.body.location,description:'',unit:'C',time:'',icon:''});
+     res.render('index',{pageTitle:'Minimal Weather', degree:'',cityName:req.body.location,description:'',unit:'',time:'',image:'',imageSource:"",display:false,refreshed:'display:none'});
 
  })
 
@@ -49,23 +50,63 @@ app.use(bodyParser.urlencoded({
               // console.log(result[0].LocalObservationDateTime);
                value = Math.round(result[0].Temperature.Metric.Value);
                desc = result[0].WeatherText;
-               iconpack = result[0].WeatherIcon;
+               num = result[0].WeatherIcon;
                isDayTime = result[0].IsDayTime;
-        
-                function dayTime(){
-                    return isDayTime;
-                }
+              let imageSource;
+              let image;
+                
+if(isDayTime){
+  if((num == 1 || num ==2 || num==3 || num==4)) {
+  image= "background-image:url('../assets/clear.jpg')"
+  imageSource = "../assets/clear.png"
+}
+  else if((num == 6 || num == 7 || num == 8 || num == 5)){
+  image= "background-image:url('../assets/rainy.jpg')"
+  imageSource = "../assets/cloudy.png"
+  }
+  else if(num == 12 ||num == 13 ||num == 14 ||num == 15 ||num == 16 ||num == 17 ||num == 18 ){
+  image= "background-image:url('../assets/rain.jpg')"
+  imageSource = "../assets/rain.png"
+  }
+  else if(num == 11){   
+  image= "background-image:url('../assets/fog.jpg')"
+  imageSource = "../assets/fog.png"
+  }
+  else{  
+  image= "background-image:url('../assets/snowDay.jpg')"
+  imageSource = "../assets/snow.png"
+  } 
+}
+if(!isDayTime){
+ if (num == 33 || num ==34 || num==35) {
+  image = "background-image:url('night.jpg')";
+  imageSource = "../assets/clearnight.png"
+} else if (num == 36 || num == 37 || num == 38 ) {
+image = "background-image:url('cloudyNight.jpg')";
+imageSource = "../assets/cloudynight.png"
+} else if(num == 39 ||num == 40 ||num == 41 ||num == 42 ) {
+image = "background-image:url('rain.jpg')";
+imageSource = "../assets/thunderstorm.png"
+}
+else{
+image = "background-image:url('snowNight.jpg')";
+imageSource = "../assets/snow.png"
+}
+}
 
-
-               res.render('index',{pageTitle:'Minimal Weather', degree:value,cityName:req.body.location,description:desc,unit:'C',time:d.getHours()+":"+d.getMinutes(),icon:icon});
+               res.render('index',{
+                 pageTitle:'Minimal Weather', degree:value,cityName:req.body.location,description:desc,unit:`°C`,time:d.getHours()+":"+d.getMinutes(),image:image,imageSource:imageSource,display:true,refreshed:'display:block, text-align:center'
+                });
             }).catch(err =>{
                 console.log("There was some error in the second fetch:",err.message);
+                res.render('error',{description:'There was some error in fetching details. Please check location or try again later.'});
               })
            
 })
 .catch(e =>{
     
     console.log("There was some error in first fetch",e.message);
+    res.render('error',{description:'There was some error in fetching details. Please check location or try again later.'});
   })
  })
 

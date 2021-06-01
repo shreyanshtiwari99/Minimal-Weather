@@ -38,7 +38,7 @@ body {
   display: flex;
   margin-top: 1em;
   grid-area: icon;
-  margin-left: 33%;
+  margin: 25px auto 0 auto;
 }
 .temperature-description {
   display: flex;
