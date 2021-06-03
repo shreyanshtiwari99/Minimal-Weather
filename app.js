@@ -4,6 +4,7 @@ const  bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 
 let d = new Date();
+
 app.use(express.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -19,7 +20,7 @@ app.use(bodyParser.urlencoded({
 
  app.get('/',(req,res) => {
      res.render('index',{pageTitle:'Minimal Weather', degree:'',cityName:req.body.location,description:'',unit:'',time:'',image:'',imageSource:"",display:false,refreshed:'display:none'});
-
+   
  })
 
 
