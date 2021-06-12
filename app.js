@@ -83,7 +83,7 @@ if(!isDayTime){
  if (num == 33 || num ==34 || num==35) {
   image = "background-image:url('../assets/night.jpg')";
   imageSource = "../assets/clearnight.png"
-} else if (num == 36 || num == 37 || num == 38 ) {
+} else if (num == 36 || num == 37 || num == 38 || num == 7) {
 image = "background-image:url('../assets/cloudyNight.jpg')";
 imageSource = "../assets/cloudynight.png"
 } else if(num == 39 ||num == 40 ||num == 41 ||num == 42 ) {
