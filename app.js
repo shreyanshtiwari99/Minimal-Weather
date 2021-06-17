@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const  bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-
+const dotenv = require('dotenv').config();
 let d = new Date();
 
 app.use(express.json());
@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({
     let value, desc, icon, isDayTime,iconpack;
     console.log(req.body.location);
     const location = req.body.location
-    fetch( `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=Ffx7XA6Jw14Zr7ykqaMGZznpAmhGo8pW%20&q=${location}`)
+    fetch( `https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${process.env.API_KEY}&q=${location}`)
     .then(resp => {
     
         return resp.json();
@@ -38,7 +38,7 @@ app.use(bodyParser.urlencoded({
       
         const city = dataset[0].LocalizedName;
        
-          fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=%20%09Ffx7XA6Jw14Zr7ykqaMGZznpAmhGo8pW%20`)
+          fetch(`http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=%20%09${process.env.API_KEY}`)
             .then(data => {
               return data.json();
             })
