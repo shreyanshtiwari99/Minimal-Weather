@@ -8,4 +8,5 @@ I've also built the same app without Node and Express which only runs if you dow
 NOTE: The free API only allows a limited number of requests in 24 hours. If the requests exceed the specified number, the app may stop working for some time.
 
 The link to the original app: https://github.com/shreyanshtiwari99/Weather-App.git
-The link to heroku for this app: https://minimalweathershreyansh.herokuapp.com/
+
+The link to heroku(live version) for this app: https://minimalweathershreyansh.herokuapp.com/
